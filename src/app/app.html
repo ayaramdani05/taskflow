@@ -1,0 +1,23 @@
+<h1>{{ title() }}</h1>
+<button (click)="rename()">Renommer</button>
+
+<input [(ngModel)]="newTask" placeholder="Nouvelle tâche" />
+<input type="date" [(ngModel)]="newDate" />
+<button (click)="addTask()">Ajouter une tâche</button>
+<button (click)="clearTasks()">Vider la liste</button>
+
+@if (tasks.length === 0) {
+  <p>Aucune tâche pour l'instant</p>
+} @else {
+  <ul>
+    @for (task of tasks; track task.id) {
+      <li>
+        {{ task.title | uppercase }}
+        @if (task.dueDate) {
+          : {{ task.dueDate | date:'dd/MM/yyyy' }}
+        }
+        <button (click)="deleteTask(task.id)">Supprimer</button>
+      </li>
+    }
+  </ul>
+}
