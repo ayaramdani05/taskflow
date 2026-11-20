@@ -11,7 +11,6 @@ import { Task } from './task.model';
 })
 export class App {
   title = signal('TaskFlow');
-  canDelete = false;
   tasks: Task[] = [];
   newTask = '';
   newDate = '';
