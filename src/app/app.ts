@@ -2,10 +2,11 @@ import { Component, signal, computed } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DatePipe, UpperCasePipe } from '@angular/common';
 import { Task } from './task.model';
+import { TaskCard } from './task-card/task-card';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, UpperCasePipe, DatePipe],
+  imports: [FormsModule, UpperCasePipe, DatePipe, TaskCard],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -39,6 +40,12 @@ export class App {
 
   deleteTask(id: number) {
     this.tasks.update(items => items.filter(task => task.id !== id));
+  }
+
+  onCompleted(id: number) {
+    this.tasks.update(items =>
+      items.map(task => task.id === id ? { ...task, completed: true } : task)
+    );
   }
 
   clearTasks() {

@@ -1,0 +1,4 @@
+<span [style.text-decoration]="task().completed ? 'line-through' : 'none'">
+  {{ task().title }}
+</span>
+<button (click)="markDone()" [disabled]="task().completed">Terminée</button>

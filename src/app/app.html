@@ -14,7 +14,7 @@
   <ul>
     @for (task of tasks(); track task.id) {
       <li>
-        {{ task.title | uppercase }}
+        <app-task-card [task]="task" (completed)="onCompleted($event)" />
         @if (task.dueDate) {
           : {{ task.dueDate | date:'dd/MM/yyyy' }}
         }
