@@ -57,3 +57,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `priority` est une **union littérale** : seules les valeurs `'low'`, `'medium'` et `'high'` sont acceptées. Une valeur comme `'urgent'` provoque une erreur TypeScript à la compilation.
+- `dueDate?` est une **propriété optionnelle** : une tâche peut exister sans date.
+- TypeScript ne vérifie plus les données à l'exécution : un JSON reçu d'un serveur n'est pas contrôlé automatiquement.
